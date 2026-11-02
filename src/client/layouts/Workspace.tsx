@@ -27,16 +27,11 @@ export function Workspace({
       <NavigationShell
         brand={
           <a className="logo" href={import.meta.env.BASE_URL}>
-            <span>
-              <Icon name="arrow" size={23} />
-            </span>
-            <strong>
-              ANQ Next Step<small>APPLICATION WORKSPACE</small>
-            </strong>
+            ANQ Next Step<small>Application workspace</small>
           </a>
         }
       >
-        <p className="nav-label">YOUR WORKSPACE</p>
+        <p className="nav-label">Your workspace</p>
         <nav aria-label="Workspace">
           {(
             [
@@ -74,7 +69,6 @@ export function Workspace({
           ))}
         </nav>
         <div className="sidebar-note">
-          <Icon name="arrow" />
           <strong>Progress, one step at a time.</strong>
           <p>Keep the details together. Make time for the next conversation.</p>
         </div>

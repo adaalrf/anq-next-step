@@ -18,9 +18,6 @@ export function ApplicationCard({
       onClick={() => onOpen(a.id)}
       aria-label={`View ${a.role} at ${a.company}`}
     >
-      <span className="company-monogram" aria-hidden="true">
-        {a.company.slice(0, 1)}
-      </span>
       <span className="card-company">{a.company}</span>
       <strong>{a.role}</strong>
       <span className="card-location">{a.location || 'Location not recorded'}</span>

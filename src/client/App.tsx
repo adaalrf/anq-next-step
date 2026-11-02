@@ -229,7 +229,6 @@ export function App() {
         )}
         <div className="page-heading">
           <div>
-            <p className="eyebrow">A LITTLE MORE DIRECTION.</p>
             <h1>
               {view === 'applications'
                 ? 'Your next opportunity.'
@@ -273,56 +272,31 @@ export function App() {
             </button>
           </div>
         )}
-        <div className="stats">
-          <div>
-            <span className="stat-icon">
-              <Icon name="folder" />
-            </span>
-            <span>
-              In progress
-              <strong>
-                {active.length}
-                <small>applications</small>
-              </strong>
-            </span>
-          </div>
-          <div>
-            <span className="stat-icon green">
-              <Icon name="journal" />
-            </span>
-            <span>
-              Conversations
-              <strong>
-                {active.filter((a) => a.stage === 'interview').length}
-                <small>interviewing</small>
-              </strong>
-            </span>
-          </div>
-          <div>
-            <span className="stat-icon amber">
-              <Icon name="clock" />
-            </span>
-            <span>
-              Follow-ups due
-              <strong>
-                {due.length}
-                <small>today or earlier</small>
-              </strong>
-            </span>
-          </div>
-          <div>
-            <span className="stat-icon">
-              <Icon name="arrow" />
-            </span>
-            <span>
-              Offers to consider
-              <strong>
-                {active.filter((a) => a.stage === 'offer').length}
-                <small>open offers</small>
-              </strong>
-            </span>
-          </div>
-        </div>
+        <dl className="stats">
+          {(
+            [
+              ['In progress', active.length, 'applications'],
+              [
+                'Conversations',
+                active.filter((a) => a.stage === 'interview').length,
+                'interviewing',
+              ],
+              ['Follow-ups due', due.length, 'today or earlier'],
+              [
+                'Offers to consider',
+                active.filter((a) => a.stage === 'offer').length,
+                'open offers',
+              ],
+            ] as const
+          ).map(([label, count, unit]) => (
+            <div key={label}>
+              <dt>{label}</dt>
+              <dd>
+                {count} <small>{unit}</small>
+              </dd>
+            </div>
+          ))}
+        </dl>
         {selectedId && !selected ? (
           <section className="inventory-panel">
             <p className="subtle">
