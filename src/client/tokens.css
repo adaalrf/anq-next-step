@@ -45,7 +45,7 @@
     --color-on-brand: #20243a;
     --color-line: #4b526b;
     --color-focus: #c1c7f3;
-    --color-sidebar-muted: #d0dce0;
+    --color-sidebar-muted: #cfd2e6;
     --color-danger: #ffb4a8;
     --color-danger-surface: #412824;
     --color-warning: #f2d48d;
@@ -56,6 +56,6 @@
     --color-info-surface: #24354a;
     --color-purple: #d7bff2;
     --color-purple-surface: #352a43;
-    --color-accent: #34472b;
+    --color-accent: #2f3456;
   }
 }
