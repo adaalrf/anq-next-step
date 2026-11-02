@@ -1,9 +1,9 @@
 /* ANQ token contract: shared roles and metrics; this project owns its palette. */
 :root {
   color-scheme: light;
-  --color-canvas: #f7f7fa;
+  --color-canvas: #f8f6f2;
   --color-surface: #ffffff;
-  --color-surface-soft: #efedf7;
+  --color-surface-soft: #efebf3;
   --color-ink: #34364a;
   --color-muted: #666777;
   --color-brand: #515a87;

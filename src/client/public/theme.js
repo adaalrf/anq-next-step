@@ -19,7 +19,7 @@
     }
     root.dataset.theme = theme;
     document.querySelectorAll('meta[name="theme-color"]').forEach((meta) => {
-      meta.content = theme === 'dark' ? '#171923' : '#f7f7fa';
+      meta.content = theme === 'dark' ? '#171923' : '#f8f6f2';
     });
     dispatchEvent(new Event('tracker-theme-change'));
   }
