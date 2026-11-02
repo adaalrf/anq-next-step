@@ -86,7 +86,7 @@ export async function checkNavigationTheme(source: Page, origin: string, hasMenu
     await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
     await expect(page.locator('.board-toolbar .search')).toHaveCSS(
       'background-color',
-      'rgb(33, 36, 50)',
+      'rgb(33, 29, 54)',
     );
     const other = await source.context().newPage();
     await other.goto(origin);

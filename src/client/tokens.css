@@ -1,9 +1,9 @@
 /* ANQ token contract: shared roles and metrics; this project owns its palette. */
 :root {
   color-scheme: light;
-  --color-canvas: #f8f6f2;
+  --color-canvas: #f2f1f9;
   --color-surface: #ffffff;
-  --color-surface-soft: #efebf3;
+  --color-surface-soft: #eae9f5;
   --color-ink: #34364a;
   --color-muted: #666777;
   --color-brand: #515a87;
@@ -34,16 +34,16 @@
 @media screen {
   :root[data-theme='dark'] {
     color-scheme: dark;
-    --color-canvas: #171923;
-    --color-surface: #212432;
-    --color-surface-soft: #2b3042;
-    --color-ink: #e8e9f3;
-    --color-muted: #b9bfd2;
+    --color-canvas: #171426;
+    --color-surface: #211d36;
+    --color-surface-soft: #2c2647;
+    --color-ink: #ebe9f2;
+    --color-muted: #bdb9d2;
     --color-brand: #c1c7f3;
     --color-brand-hover: #d4d8fa;
-    --color-sidebar: #25283b;
+    --color-sidebar: #26223e;
     --color-on-brand: #20243a;
-    --color-line: #4b526b;
+    --color-line: #504b6b;
     --color-focus: #c1c7f3;
     --color-sidebar-muted: #cfd2e6;
     --color-danger: #ffb4a8;
