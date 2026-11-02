@@ -217,7 +217,7 @@ export function App() {
       <Workspace {...{ session, view, navigate, due, logout }}>
         {session.demo && (
           <div className="demo-banner">
-            <span className="demo-tag">DEMO</span>
+            <span className="demo-tag">Demo</span>
             <span>
               Fictional companies and applications. Explore freely; changes are disabled.
               {session.relativeDates && ' Sample dates are relative to today.'}
