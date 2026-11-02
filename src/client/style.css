@@ -91,6 +91,8 @@ small {
 .eyebrow,
 .nav-label,
 .column-title h2,
+.section-title h3,
+.tabs h2,
 .stats dt,
 .facts dt,
 .server-notes h3,
@@ -865,7 +867,6 @@ main > footer {
 }
 .section-title h3 {
   margin: 0;
-  font-size: var(--text-xl);
 }
 .section-title span {
   color: var(--color-muted);
