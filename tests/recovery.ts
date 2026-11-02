@@ -25,7 +25,7 @@ const url = (db: string) => {
 };
 const admin = new pg.Pool({ connectionString: url('postgres') });
 const image = process.env.TEST_IMAGE;
-const name = 'tracker-recovery-' + tag;
+const name = 'next-step-recovery-' + tag;
 const origin = `http://127.0.0.1:${process.env.TEST_PORT || '18586'}`;
 const password = 'recovery-test-' + tag;
 const hash = await hashPassword(password);

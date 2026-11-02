@@ -1,12 +1,12 @@
 # ANQ Next Step
 
-[![Checks](https://github.com/adaalrf/anq-application-tracker/actions/workflows/check.yml/badge.svg)](https://github.com/adaalrf/anq-application-tracker/actions/workflows/check.yml)
+[![Checks](https://github.com/adaalrf/anq-next-step/actions/workflows/check.yml/badge.svg)](https://github.com/adaalrf/anq-next-step/actions/workflows/check.yml)
 
 A job-application workspace for keeping a role, its cover letter and the next
 follow-up together. Forms retain entered text after failed saves, and conflicting
 edits surface for review. Built with React, TypeScript, Fastify and PostgreSQL.
 
-[Explore the read-only demo](https://tracker.demo.adaalrf.dev) · [Case study](https://adaalrf.dev/work/anq-application-tracker/) · [Source map](CONTRIBUTING.md#where-changes-belong)
+[Explore the read-only demo](https://tracker.demo.adaalrf.dev) · [Case study](https://adaalrf.dev/work/anq-next-step/) · [Source map](CONTRIBUTING.md#where-changes-belong)
 
 The demo contains fictional applications. The owner workspace uses a separate database.
 
@@ -25,7 +25,7 @@ write and revise implementation code. The [development guide](CONTRIBUTING.md)
 sets the data and verification boundaries. Changes to saved materials, history and
 conflict handling are checked against disposable PostgreSQL and browser workflows.
 
-The [initial public release](https://github.com/adaalrf/anq-application-tracker/commit/3abb4a5) is a squashed snapshot of pre-publication development; subsequent changes are recorded incrementally.
+The [initial public release](https://github.com/adaalrf/anq-next-step/commit/3abb4a5) is a squashed snapshot of pre-publication development; subsequent changes are recorded incrementally.
 
 ## Run locally
 
@@ -60,7 +60,7 @@ warnings do not store drafts. Dates remain calendar dates across timezones.
    address when needed. Keep it in Saved while preparing.
 2. Paste your cover letter, record the next action, and save. You can reopen and
    edit the saved text; the letter is included in export and database backups.
-3. Submit to the employer outside Tracker. Set the stage to Applied and record
+3. Submit to the employer outside Next Step. Set the stage to Applied and record
    the submission date and a follow-up date.
 4. Record follow-ups to save what happened, update the next action, and schedule
    the next date (or clear it to finish that follow-up). Update status as it moves

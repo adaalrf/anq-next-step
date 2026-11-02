@@ -1,4 +1,4 @@
-# Developing anq-application-tracker
+# Developing anq-next-step
 
 ## First run
 
@@ -78,7 +78,7 @@ Describe the trigger, resulting behaviour, validation and remaining limits in th
 change description. Do not add credentials, `.env`, `.local/`, database dumps or
 runtime images to Git. Preserve existing signing settings.
 
-The private production tracker and public fictional demo have separate databases.
+The private production workspace and public fictional demo have separate databases.
 Never seed or reset production. Cover letters are saved plain text, not uploaded
 files; follow-ups are an in-app view, not email notifications. Saved records are
 durable; unsaved forms only have discard warnings. See [operations](docs/OPERATIONS.md)

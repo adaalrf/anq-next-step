@@ -21,7 +21,7 @@
     document.querySelectorAll('meta[name="theme-color"]').forEach((meta) => {
       meta.content = theme === 'dark' ? '#171923' : '#f8f6f2';
     });
-    dispatchEvent(new Event('tracker-theme-change'));
+    dispatchEvent(new Event('next-step-theme-change'));
   }
   apply();
   system.addEventListener('change', apply);
@@ -31,7 +31,7 @@
       apply();
     }
   });
-  addEventListener('tracker-theme-set', (event) => {
+  addEventListener('next-step-theme-set', (event) => {
     preference = valid(event.detail);
     try {
       localStorage.setItem(key, preference);

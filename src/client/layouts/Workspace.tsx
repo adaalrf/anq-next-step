@@ -20,7 +20,7 @@ export function Workspace({
   children: ReactNode;
 }) {
   return (
-    <div className="app-shell tracker">
+    <div className="app-shell">
       <a className="skip" href="#content">
         Skip to content
       </a>

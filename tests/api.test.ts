@@ -9,7 +9,7 @@ import { hashPassword } from '../src/server/auth.js';
 import { migrate } from '../src/server/migrate.js';
 if (!process.env.TEST_DATABASE_URL)
   throw new Error('TEST_DATABASE_URL is required; tests create and drop a temporary schema.');
-const schema = `tracker_${randomUUID().replaceAll('-', '')}`;
+const schema = `next_step_${randomUUID().replaceAll('-', '')}`;
 const admin = new pg.Pool({ connectionString: process.env.TEST_DATABASE_URL });
 const pool = new pg.Pool({
   connectionString: process.env.TEST_DATABASE_URL,

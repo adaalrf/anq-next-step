@@ -4,9 +4,9 @@ export function ThemeToggle() {
   const [dark, setDark] = useState(() => document.documentElement.dataset.theme === 'dark');
   useEffect(() => {
     const update = () => setDark(document.documentElement.dataset.theme === 'dark');
-    window.addEventListener('tracker-theme-change', update);
+    window.addEventListener('next-step-theme-change', update);
     update();
-    return () => window.removeEventListener('tracker-theme-change', update);
+    return () => window.removeEventListener('next-step-theme-change', update);
   }, []);
   return (
     <button
@@ -18,7 +18,7 @@ export function ThemeToggle() {
       title={dark ? 'Switch to light mode' : 'Switch to dark mode'}
       onClick={() =>
         window.dispatchEvent(
-          new CustomEvent('tracker-theme-set', { detail: dark ? 'light' : 'dark' }),
+          new CustomEvent('next-step-theme-set', { detail: dark ? 'light' : 'dark' }),
         )
       }
     >

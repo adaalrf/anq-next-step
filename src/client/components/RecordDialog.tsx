@@ -182,7 +182,7 @@ export function RecordDialog({
                 </Field>
                 <p className="form-help">
                   Save the application to keep your letter and details. Submitting to the employer
-                  happens outside Tracker; then set the stage to Applied and record the date.
+                  happens outside Next Step; then set the stage to Applied and record the date.
                 </p>
                 <Field label="Next action">
                   <input

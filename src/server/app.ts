@@ -74,7 +74,7 @@ export async function createApp(
     if (request.url.startsWith('/api/')) reply.header('Cache-Control', 'no-store');
   });
   async function authenticated(request: { cookies: Record<string, string | undefined> }) {
-    const token = request.cookies['tracker_session'];
+    const token = request.cookies['next_step_session'];
     if (!token || !/^[a-f0-9]{64}$/.test(token)) return false;
     const result = await pool.query(
       'SELECT 1 FROM sessions WHERE token_hash=$1 AND expires_at > now()',
@@ -128,7 +128,7 @@ export async function createApp(
         "INSERT INTO sessions(token_hash,expires_at) VALUES ($1, now() + interval '12 hours')",
         [tokenHash(token)],
       );
-      reply.setCookie('tracker_session', token, {
+      reply.setCookie('next_step_session', token, {
         httpOnly: true,
         sameSite: 'strict',
         secure: config.secureCookie,
@@ -139,11 +139,11 @@ export async function createApp(
     },
   );
   app.post('/api/logout', async (request, reply) => {
-    if (request.cookies.tracker_session)
+    if (request.cookies.next_step_session)
       await pool.query('DELETE FROM sessions WHERE token_hash=$1', [
-        tokenHash(request.cookies.tracker_session),
+        tokenHash(request.cookies.next_step_session),
       ]);
-    reply.clearCookie('tracker_session', {
+    reply.clearCookie('next_step_session', {
       path: '/',
       httpOnly: true,
       sameSite: 'strict',
@@ -336,7 +336,7 @@ export async function createApp(
       const activities = (await client.query(`${activitySelect} ORDER BY e.created_at DESC,e.id`))
         .rows;
       await client.query('COMMIT');
-      reply.header('Content-Disposition', 'attachment; filename="application-tracker-export.json"');
+      reply.header('Content-Disposition', 'attachment; filename="next-step-export.json"');
       return { schemaVersion: 1, exportedAt: new Date().toISOString(), applications, activities };
     } catch (error) {
       await client.query('ROLLBACK');

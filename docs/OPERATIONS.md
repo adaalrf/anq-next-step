@@ -27,7 +27,7 @@
 
 ## Production data and recovery
 
-Tracker stores saved cover letters (plain text, up to 20,000 characters), listing
+Next Step stores saved cover letters (plain text, up to 20,000 characters), listing
 URLs, application addresses, next actions, dates and status in PostgreSQL. They
 are included in JSON export and the complete database backup. These are saved
 records; an unsaved form is not durable. Files such as PDFs are not uploaded.
@@ -53,7 +53,7 @@ container, restores pg_dump into the second database, verifies recovered login
 and exact exported records/history, then removes only its own test resources.
 
 For locally preloaded releases, retain the current image with a unique tag in the
-same repository (for example `localhost/anq-application-tracker:retained-r3`)
+same repository (for example `localhost/anq-next-step:retained-r3`)
 BEFORE loading the next OCI archive. Replacing the sole tag can remove the old
 repository digest association even while its image ID remains stored. Verify
 `podman image exists REPOSITORY@CURRENT_DIGEST` before deployment or backup,
@@ -64,7 +64,7 @@ the current immutable image without pulling from a nonexistent localhost registr
 
 ### Runtime
 
-Build with `podman build -t localhost/anq-application-tracker:release .`.
+Build with `podman build -t localhost/anq-next-step:release .`.
 The image serves the built interface and API on port 8080 as an unprivileged user.
 It supports a read-only filesystem with writable `/tmp` and requires PostgreSQL 17.
 Container replacement must preserve the database volume; application containers

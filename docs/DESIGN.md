@@ -3,7 +3,7 @@
 ## A useful personal workflow
 
 The job hunt often spreads details across notes, saved links, and message threads.
-The tracker focuses on the current stage and the next useful action. It does not
+Next Step focuses on the current stage and the next useful action. It does not
 apply on a person's behalf or read their email.
 
 ## Data model
