@@ -30,7 +30,7 @@ try {
   await page.getByLabel('Password', { exact: true }).fill(credentials.password);
   await page.getByRole('button', { name: 'Sign in', exact: true }).click();
   await expect(
-    page.getByRole('heading', { name: 'Your next opportunity.', exact: true }),
+    page.getByRole('heading', { name: 'Applications', exact: true, level: 1 }),
   ).toBeVisible();
   await page.getByRole('button', { name: 'Add application', exact: true }).click();
   for (const name of [
@@ -44,7 +44,7 @@ try {
   await workspaceLink(page, 'Follow-ups');
   await page.reload();
   await expect(
-    page.getByRole('heading', { name: 'Keep the conversation going.', exact: true }),
+    page.getByRole('heading', { name: 'Follow-ups', exact: true, level: 1 }),
   ).toBeVisible();
   const exported = await page.request.get(`${origin}/api/export`);
   assert.equal(exported.status(), 200);

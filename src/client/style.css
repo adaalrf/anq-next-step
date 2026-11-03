@@ -40,7 +40,7 @@ textarea {
   outline-offset: 3px;
 }
 main:focus,
-main h1:focus {
+.topbar h1:focus {
   outline: none;
 }
 .skip {
@@ -95,8 +95,7 @@ small {
 .tabs h2,
 .stats dt,
 .facts dt,
-.server-notes h3,
-.demo-tag {
+.server-notes h3 {
   font-family: var(--font-mono);
   font-size: var(--text-ui);
   font-weight: 400;
@@ -392,9 +391,13 @@ button:disabled {
   background: var(--color-canvas);
   color: var(--color-muted);
 }
-.topbar strong {
+.topbar h1 {
+  display: inline;
+  margin: 0;
   color: var(--color-ink);
+  font: inherit;
   font-weight: 500;
+  letter-spacing: 0;
 }
 .breadcrumb {
   margin: 0 var(--space-2);
@@ -413,35 +416,21 @@ main {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: var(--space-2) var(--space-3);
-  margin-bottom: var(--space-6);
-  padding: var(--space-2) var(--space-4);
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius-small);
-  background: var(--color-surface-soft);
+  gap: 0 var(--space-3);
+  margin: 0;
+  color: var(--color-muted);
   font-size: var(--text-sm);
-}
-.demo-tag {
-  padding: 0 var(--space-2);
-  border: 1px solid var(--color-line);
-  border-radius: var(--radius-small);
-  color: var(--color-ink);
-}
-.demo-end {
-  margin-left: auto;
 }
 .page-heading {
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-end;
+  align-items: center;
   justify-content: space-between;
-  gap: var(--space-4) var(--space-6);
-  margin-bottom: var(--space-6);
+  gap: var(--space-3) var(--space-5);
+  margin-bottom: var(--space-5);
 }
-.page-heading p {
-  max-width: 40rem;
-  margin: 0;
-  color: var(--color-muted);
+.page-heading .primary {
+  margin-left: auto;
 }
 .error:is(div),
 .notice {
@@ -1084,9 +1073,6 @@ dialog::backdrop {
   }
   main {
     padding-top: var(--space-5);
-  }
-  .demo-end {
-    margin-left: 0;
   }
   .page-heading .primary {
     width: 100%;
