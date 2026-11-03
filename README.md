@@ -68,15 +68,12 @@ warnings do not store drafts. Dates remain calendar dates across timezones.
 
 Cover letters are stored as plain text; this release does not upload documents
 or submit applications automatically. Daily backups protect saved records, not
-unsaved form drafts. See operations for recovery and backup retention.
+unsaved form drafts. See [deployment](docs/DEPLOYMENT.md) for recovery and backup retention.
 
 ## Configuration and limits
 
-`.env.example` describes manual configuration. For owner mode use
-`DEMO_MODE=false`, `OWNER_USERNAME`, `OWNER_PASSWORD_HASH` and an exact
-`APP_ORIGIN`. Generate a hash with `npm run --silent password`, passing the
-password on stdin. HTTPS is required outside localhost. Demo mode exposes all
-records read-only; use a separate database containing fictional data.
+`.env.example` describes manual configuration; [deployment](docs/DEPLOYMENT.md)
+covers owner mode and the read-only demo.
 
 This is a personal workspace: no collaboration, delivered reminders, document
 uploads or automatic applications. Lists are unpaginated. The UI shows the latest
@@ -87,8 +84,8 @@ protected against database administrators.
 ## Development and deployment
 
 [Contributing](CONTRIBUTING.md) covers source layout, daily commands and isolated
-API/browser tests. [Design](docs/DESIGN.md) explains the data and authorization
-boundaries. [Operations](docs/OPERATIONS.md) covers deployment, durable storage,
-backups and recovery. Never point tests or demo seeding at a production database.
+API/browser tests. [Architecture](docs/ARCHITECTURE.md) explains the data and
+authorization boundaries. [Deployment](docs/DEPLOYMENT.md) covers hosting, durable
+storage, backups and recovery. Never point tests or demo seeding at a production database.
 
 For a read-only sample prepared on a known UTC date, set `DEMO_DATE_ANCHOR=YYYY-MM-DD` alongside `DEMO_MODE=true`. API dates then move together relative to today; stored records, text and pagination keys remain unchanged. Leave it blank for stored dates. Owner mode rejects this setting. The demo banner explains the relative dates.
