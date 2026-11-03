@@ -29,7 +29,7 @@ The [initial public release](https://github.com/adaalrf/anq-next-step/commit/3ab
 
 ## Run locally
 
-Requires Linux, Node.js 24+, npm and rootless Podman:
+Requires Linux, Node.js 26+, npm and rootless Podman:
 
 ```sh
 npm ci
