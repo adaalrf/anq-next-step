@@ -81,7 +81,8 @@ runtime images to Git. Preserve existing signing settings.
 The private production workspace and public fictional demo have separate databases.
 Never seed or reset production. Cover letters are saved plain text, not uploaded
 files; follow-ups are an in-app view, not email notifications. Saved records are
-durable; unsaved forms only have discard warnings. See [operations](docs/OPERATIONS.md)
+durable; unsaved forms only have discard warnings, and private application text
+must not be kept in browser storage. See [deployment](docs/DEPLOYMENT.md#recovery)
 for the optional built-image persistence/recovery test.
 
 For visual changes, use the local CSS tokens and preserve contrast, visible

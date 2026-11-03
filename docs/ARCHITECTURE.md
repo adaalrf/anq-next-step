@@ -1,10 +1,4 @@
-# Design decisions
-
-## A useful personal workflow
-
-The job hunt often spreads details across notes, saved links, and message threads.
-Next Step focuses on the current stage and the next useful action. It does not
-apply on a person's behalf or read their email.
+# Architecture
 
 ## Data model
 
@@ -18,7 +12,7 @@ uses the viewer's local calendar day and excludes closed/archived applications.
 Blank dates are null. Export uses repeatable-read isolation so records and their
 history come from a coherent snapshot.
 
-## Privacy and deployment
+## Security boundary
 
 Owner mode requires configured credentials and HTTPS outside localhost. Scrypt
 password hashing, a rate-limited login, hashed random session tokens, HttpOnly/
@@ -41,7 +35,7 @@ has its own Unix account, key, container network, and PostgreSQL store.
 
 ## Trade-offs
 
-This is a personal workspace, not a recruitment platform. No tenants, email
-delivery, integration credentials, board drag-and-drop, or analytics service.
-Changing a stage through the edit form is keyboard-accessible and produces an
-explicit history event. Version conflicts require a reload and review.
+There are no tenants, integration credentials, board drag-and-drop or analytics
+service. Changing a stage through the edit form is keyboard-accessible and
+produces an explicit history event. Version conflicts require a reload and review
+rather than an automatic merge.
