@@ -104,7 +104,8 @@ try {
   await page.reload();
   await expect(
     page.getByRole('heading', {
-      name: 'Keep the conversation going.',
+      name: 'Follow-ups',
+      level: 1,
       exact: true,
     }),
   ).toBeVisible();
@@ -123,7 +124,8 @@ try {
   await page.goBack();
   await expect(
     page.getByRole('heading', {
-      name: 'Keep the conversation going.',
+      name: 'Follow-ups',
+      level: 1,
       exact: true,
     }),
   ).toBeVisible();
@@ -263,6 +265,31 @@ try {
   await page.setViewportSize({ width: 390, height: 844 });
   await expect(page.getByRole('link', { name: 'A project by Martin Røed Flyum' })).toBeVisible();
   await expect(page.getByText(/Sample dates are relative to today/)).toBeVisible();
+  // Standalone controls meet the family's 44px target; links inside a sentence are exempt.
+  assert.deepEqual(
+    await page.evaluate(() =>
+      [...document.querySelectorAll<HTMLElement>('.workspace a, .workspace button, header button')]
+        .filter((control) => {
+          const sentence = control.closest('p, li');
+          return !sentence || sentence.textContent.trim() === control.textContent.trim();
+        })
+        .filter((control) => control.getClientRects().length)
+        .filter((control) => control.getBoundingClientRect().height < 44)
+        .map((control) => control.textContent.trim()),
+    ),
+    [],
+  );
+  // Opening an application replaces the dashboard, so its details lead the screen.
+  const firstCard = page.locator('.application-card').first();
+  await firstCard.click();
+  await expect(page.locator('.detail')).toBeVisible();
+  await expect(page.locator('.stats')).toHaveCount(0);
+  const detailTop = await page.locator('.detail').evaluate((node) => {
+    return node.getBoundingClientRect().top;
+  });
+  assert.ok(detailTop < 300, `Details start ${detailTop}px down`);
+  await page.getByRole('button', { name: '← Back to applications' }).click();
+  await expect(page.locator('.stats')).toBeVisible();
   await page.screenshot({
     path: 'test-results/screenshots/pipeline-mobile.png',
     fullPage: true,

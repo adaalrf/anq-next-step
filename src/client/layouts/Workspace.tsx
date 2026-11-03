@@ -92,13 +92,13 @@ export function Workspace({
         <header className="topbar">
           <span>
             Workspace <span className="breadcrumb">/</span>
-            <strong>
+            <h1 tabIndex={-1}>
               {view === 'applications'
                 ? 'Applications'
                 : view === 'followups'
                   ? 'Follow-ups'
                   : 'Activity'}
-            </strong>
+            </h1>
           </span>
           <a className="export" href={`${import.meta.env.BASE_URL}api/export`}>
             <Icon name="download" size={16} />

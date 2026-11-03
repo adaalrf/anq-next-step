@@ -216,46 +216,28 @@ export function App() {
     <>
       <Workspace {...{ session, view, navigate, due, logout }}>
         {session.demo && (
-          <div className="demo-banner">
-            <span className="demo-tag">Demo</span>
-            <span>
-              Fictional companies and applications. Explore freely; changes are disabled.
-              {session.relativeDates && ' Sample dates are relative to today.'}
-            </span>
+          <p className="demo-banner">
+            <span>Demo with fictional data; changes are off.</span>
             <a className="demo-end" href="https://adaalrf.dev/work/anq-next-step/">
               A project by Martin Røed Flyum
             </a>
+          </p>
+        )}
+        {!selectedId && (
+          <div className="page-heading">
+            <button
+              className="primary"
+              disabled={session.demo}
+              onClick={() => {
+                setError('');
+                setModal({ kind: 'application' });
+              }}
+            >
+              <Icon name="plus" size={18} />
+              Add application{session.demo && ' · Disabled in demo'}
+            </button>
           </div>
         )}
-        <div className="page-heading">
-          <div>
-            <h1>
-              {view === 'applications'
-                ? 'Your next opportunity.'
-                : view === 'followups'
-                  ? 'Keep the conversation going.'
-                  : 'The story so far.'}
-            </h1>
-            <p>
-              {view === 'applications'
-                ? 'Applications, conversations, and the next thing to do — all in one place.'
-                : view === 'followups'
-                  ? 'Active applications with a follow-up date of today or earlier.'
-                  : 'Notes and stage changes, recorded as they happen.'}
-            </p>
-          </div>
-          <button
-            className="primary"
-            disabled={session.demo}
-            onClick={() => {
-              setError('');
-              setModal({ kind: 'application' });
-            }}
-          >
-            <Icon name="plus" size={18} />
-            Add application{session.demo && ' · Disabled in demo'}
-          </button>
-        </div>
         {error && !modal && (
           <div className="error" role="alert">
             {error}{' '}
@@ -272,31 +254,33 @@ export function App() {
             </button>
           </div>
         )}
-        <dl className="stats">
-          {(
-            [
-              ['In progress', active.length, 'applications'],
+        {!selectedId && (
+          <dl className="stats">
+            {(
               [
-                'Conversations',
-                active.filter((a) => a.stage === 'interview').length,
-                'interviewing',
-              ],
-              ['Follow-ups due', due.length, 'today or earlier'],
-              [
-                'Offers to consider',
-                active.filter((a) => a.stage === 'offer').length,
-                'open offers',
-              ],
-            ] as const
-          ).map(([label, count, unit]) => (
-            <div key={label}>
-              <dt>{label}</dt>
-              <dd>
-                {count} <small>{unit}</small>
-              </dd>
-            </div>
-          ))}
-        </dl>
+                ['In progress', active.length, 'applications'],
+                [
+                  'Conversations',
+                  active.filter((a) => a.stage === 'interview').length,
+                  'interviewing',
+                ],
+                ['Follow-ups due', due.length, 'today or earlier'],
+                [
+                  'Offers to consider',
+                  active.filter((a) => a.stage === 'offer').length,
+                  'open offers',
+                ],
+              ] as const
+            ).map(([label, count, unit]) => (
+              <div key={label}>
+                <dt>{label}</dt>
+                <dd>
+                  {count} <small>{unit}</small>
+                </dd>
+              </div>
+            ))}
+          </dl>
+        )}
         {selectedId && !selected ? (
           <section className="inventory-panel">
             <p className="subtle">
@@ -348,7 +332,10 @@ export function App() {
           <span>
             ANQ Next Step <span className="separator">/</span> A practical little tool by adaalrf
           </span>
-          <span>Dates shown in your local time</span>
+          <span>
+            Dates shown in your local time
+            {session.relativeDates && '. Sample dates are relative to today.'}
+          </span>
         </footer>
       </Workspace>
       <RecordDialog {...{ modal, busy, setModal, setError, save, error }} />

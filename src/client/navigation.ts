@@ -30,7 +30,7 @@ export function useNavigation() {
       return;
     previous.current = state;
     const frame = requestAnimationFrame(() => {
-      const heading = document.querySelector<HTMLElement>('main h1');
+      const heading = document.querySelector<HTMLElement>('.topbar h1');
       if (heading) {
         heading.tabIndex = -1;
         heading.focus({ preventScroll: true });
