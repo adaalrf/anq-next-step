@@ -6,7 +6,7 @@ A job-application workspace for keeping a role, its cover letter and the next
 follow-up together. Forms retain entered text after failed saves, and conflicting
 edits surface for review. Built with React, TypeScript, Fastify and PostgreSQL.
 
-[Explore the read-only demo](https://tracker.demo.adaalrf.dev) · [Case study](https://adaalrf.dev/work/anq-next-step/) · [Source map](CONTRIBUTING.md#where-changes-belong)
+[Explore the read-only demo](https://nextstep.demo.adaalrf.dev) · [Case study](https://adaalrf.dev/work/anq-next-step/) · [Source map](CONTRIBUTING.md#where-changes-belong)
 
 The demo contains fictional applications. The owner workspace uses a separate database.
 
