@@ -10,13 +10,8 @@ import type pg from 'pg';
 import { z } from 'zod';
 import type { Config } from './config.js';
 import { newToken, tokenHash, verifyPassword } from './auth.js';
-import {
-  applicationInput,
-  applicationUpdate,
-  noteInput,
-  followUpInput,
-  isActive,
-} from '../shared/model.js';
+import { isActive } from '../shared/model.js';
+import { applicationInput, applicationUpdate, noteInput, followUpInput } from './validation.js';
 
 const applicationSelect = `SELECT a.id,a.company,a.role,a.location,a.job_url AS "jobUrl",a.contact,a.salary,a.notes,a.stage,
  a.cover_letter AS "coverLetter",a.application_address AS "applicationAddress",a.next_action AS "nextAction",
