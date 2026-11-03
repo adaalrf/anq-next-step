@@ -33,7 +33,8 @@ replace its configuration. Do not copy a production `.env` into local setup.
 | Colours, spacing and layout          | `src/client/tokens.css`, `src/client/style.css`; read [DESIGN.md](DESIGN.md) first |
 | HTTP routes and authorization        | `src/server/app.ts`                                                                |
 | Credentials and session rules        | `src/server/auth.ts`, `src/server/config.ts`                                       |
-| Validation and domain rules          | `src/shared/model.ts`                                                              |
+| Request validation                   | `src/server/validation.ts`                                                         |
+| Stages, labels and follow-up rules   | `src/shared/model.ts` (shipped to the browser; no server code)                     |
 | Database changes                     | New numbered SQL file in `migrations/`                                             |
 | Local startup/setup                  | `scripts/`                                                                         |
 | API and browser regressions          | `tests/`                                                                           |
