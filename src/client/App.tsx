@@ -215,27 +215,29 @@ export function App() {
   return (
     <>
       <Workspace {...{ session, view, navigate, due, logout }}>
-        {session.demo && (
-          <p className="demo-banner">
-            <span>Demo with fictional data; changes are off.</span>
-            <a className="demo-end" href="https://adaalrf.dev/work/anq-next-step/">
-              A project by Martin Røed Flyum
-            </a>
-          </p>
-        )}
-        {!selectedId && (
+        {(session.demo || !selectedId) && (
           <div className="page-heading">
-            <button
-              className="primary"
-              disabled={session.demo}
-              onClick={() => {
-                setError('');
-                setModal({ kind: 'application' });
-              }}
-            >
-              <Icon name="plus" size={18} />
-              Add application{session.demo && ' · Disabled in demo'}
-            </button>
+            {session.demo && (
+              <p className="demo-banner">
+                <span>Demo with fictional data; changes are off.</span>
+                <a className="demo-end" href="https://adaalrf.dev/work/anq-next-step/">
+                  A project by Martin Røed Flyum
+                </a>
+              </p>
+            )}
+            {!selectedId && (
+              <button
+                className="primary"
+                disabled={session.demo}
+                onClick={() => {
+                  setError('');
+                  setModal({ kind: 'application' });
+                }}
+              >
+                <Icon name="plus" size={18} />
+                Add application{session.demo && ' · Disabled in demo'}
+              </button>
+            )}
           </div>
         )}
         {error && !modal && (

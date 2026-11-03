@@ -417,17 +417,20 @@ main {
   flex-wrap: wrap;
   align-items: center;
   gap: 0 var(--space-3);
-  margin-bottom: var(--space-5);
+  margin: 0;
   color: var(--color-muted);
   font-size: var(--text-sm);
 }
-.demo-end {
-  margin-left: auto;
-}
 .page-heading {
   display: flex;
-  justify-content: flex-end;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3) var(--space-5);
   margin-bottom: var(--space-5);
+}
+.page-heading .primary {
+  margin-left: auto;
 }
 .error:is(div),
 .notice {
@@ -1070,9 +1073,6 @@ dialog::backdrop {
   }
   main {
     padding-top: var(--space-5);
-  }
-  .demo-end {
-    margin-left: 0;
   }
   .page-heading .primary {
     width: 100%;
