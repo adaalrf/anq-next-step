@@ -111,14 +111,12 @@ try {
   ).toBeVisible();
   await expect(
     page.getByRole('button', {
-      name: 'View Test developer at Test company',
-      exact: true,
+      name: /^Test company\s*Test developer/,
     }),
   ).toBeVisible();
   await page
     .getByRole('button', {
-      name: 'View Test developer at Test company',
-      exact: true,
+      name: /^Test company\s*Test developer/,
     })
     .click();
   await page.goBack();
@@ -139,9 +137,7 @@ try {
   await page.getByRole('button', { name: 'Save follow-up', exact: true }).click();
   await expect(page.getByText(/Follow-up completed; no next date set/)).toBeVisible();
   await workspaceLink(page, 'Follow-ups');
-  await expect(
-    page.getByRole('button', { name: 'View Test developer at Test company', exact: true }),
-  ).toHaveCount(0);
+  await expect(page.getByRole('button', { name: /^Test company\s*Test developer/ })).toHaveCount(0);
   await page.goBack();
   await expect(page.getByRole('heading', { name: 'Test developer', exact: true })).toBeVisible();
   await page.getByRole('button', { name: 'Edit application', exact: true }).click();
@@ -227,14 +223,12 @@ try {
   await page.getByLabel('Search applications', { exact: true }).fill('birch');
   await expect(
     page.getByRole('button', {
-      name: 'View Frontend developer at Birch Studio',
-      exact: true,
+      name: /^Birch Studio\s*Frontend developer/,
     }),
   ).toBeVisible();
   await expect(
     page.getByRole('button', {
-      name: 'View Web developer at Forma Lab',
-      exact: true,
+      name: /^Forma Lab\s*Web developer/,
     }),
   ).toHaveCount(0);
   await page.getByLabel('Search applications', { exact: true }).fill('');
@@ -300,8 +294,7 @@ try {
   await page.getByRole('button', { name: 'Archived', exact: true }).click();
   await expect(
     page.getByRole('button', {
-      name: 'View Test developer at Test company',
-      exact: true,
+      name: /^Test company\s*Test developer/,
     }),
   ).toBeVisible();
   await checkNavigationTheme(page, demoOrigin, true);
