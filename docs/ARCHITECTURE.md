@@ -12,6 +12,10 @@ uses the viewer's local calendar day and excludes closed/archived applications.
 Blank dates are null. Export uses repeatable-read isolation so records and their
 history come from a coherent snapshot.
 
+History is append-only through the API, but it isn't protected against database
+administrators. The interface shows the latest 500 history entries per application
+or activity view, and export includes all of it. Lists are unpaginated.
+
 ## Security boundary
 
 Owner mode requires configured credentials and HTTPS outside localhost. Scrypt

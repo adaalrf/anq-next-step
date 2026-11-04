@@ -41,6 +41,12 @@ it exposes all its records and its complete JSON export. Run the seed command
 only for an empty demonstration database. Never copy owner records or credentials
 into a demo, screenshot, or repository.
 
+For a read-only sample prepared on a known UTC date, set
+`DEMO_DATE_ANCHOR=YYYY-MM-DD` alongside `DEMO_MODE=true`. API dates then move together
+relative to today; stored records, text and pagination keys stay unchanged. Leave it
+blank for stored dates. Owner mode rejects this setting, and the footer explains the
+relative dates.
+
 ## Data and backups
 
 Next Step stores saved cover letters (plain text, up to 20,000 characters), listing
