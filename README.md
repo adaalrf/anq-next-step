@@ -12,7 +12,7 @@ The demo is read-only and holds fictional applications.
 
 ## Why it exists
 
-It started with an Excel sheet. A job hunt spreads itself across saved links, notes
+This began as an Excel sheet. A job hunt spreads itself across saved links, notes
 and message threads, and a sheet only holds so much of that. Replacing it meant
 building something that looks simple: a list of applications, each with a few fields
 and a stage.
