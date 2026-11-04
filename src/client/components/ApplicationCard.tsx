@@ -13,11 +13,7 @@ export function ApplicationCard({
   showStage?: boolean;
 }) {
   return (
-    <button
-      className="application-card"
-      onClick={() => onOpen(a.id)}
-      aria-label={`View ${a.role} at ${a.company}`}
-    >
+    <button className="application-card" onClick={() => onOpen(a.id)}>
       <span className="card-company">{a.company}</span>
       <strong>{a.role}</strong>
       <span className="card-location">{a.location || 'Location not recorded'}</span>
