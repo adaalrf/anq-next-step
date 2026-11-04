@@ -12,9 +12,10 @@ The demo is read-only and holds fictional applications.
 
 ## Why it exists
 
-A job hunt spreads itself across saved links, notes and message threads. Keeping it
-all in one place means building something that looks simple: a list of applications,
-each with a few fields and a stage.
+It started with an Excel sheet. A job hunt spreads itself across saved links, notes
+and message threads, and a sheet only holds so much of that. Replacing it meant
+building something that looks simple: a list of applications, each with a few fields
+and a stage.
 
 The hard part turned out to be the forms. What should happen to a half-written
 cover letter when a save fails? When the same application is open in two tabs? How
