@@ -222,6 +222,7 @@ export function App() {
                 <span>Demo with fictional data; changes are off.</span>
                 <a className="demo-end" href="https://adaalrf.dev/work/anq-next-step/">
                   A project by Martin Røed Flyum
+                  <Icon name="external" size={14} />
                 </a>
               </p>
             )}

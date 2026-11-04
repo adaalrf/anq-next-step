@@ -8,6 +8,7 @@ export function Icon({ name, size = 19 }: { name: string; size?: number }) {
     search: 'M21 21l-5-5 M18 10a8 8 0 1 1-16 0 8 8 0 0 1 16 0',
     download: 'M12 3v12 M7 10l5 5 5-5 M4 16v5h16v-5',
     close: 'M6 6l12 12 M6 18L18 6',
+    external: 'M6 18 18 6 M6 6h12v12',
   };
   return (
     <svg
