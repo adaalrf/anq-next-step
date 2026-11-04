@@ -50,6 +50,11 @@ after(async () => {
   await admin.query(`DROP SCHEMA IF EXISTS ${schema} CASCADE`);
   await admin.end();
 });
+test('responses isolate the app from other origins', async () => {
+  const response = await app.inject('/api/session');
+  assert.equal(response.headers['cross-origin-opener-policy'], 'same-origin');
+  assert.equal(response.headers['cross-origin-resource-policy'], 'same-origin');
+});
 test('owner data is private; login checks origin and credentials', async () => {
   assert.equal((await app.inject('/healthz')).statusCode, 200);
   assert.equal((await app.inject('/api/applications')).statusCode, 401);

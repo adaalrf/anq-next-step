@@ -62,6 +62,9 @@ export async function createApp(
   app.addHook('onSend', async (request, reply) => {
     reply.header('X-Content-Type-Options', 'nosniff');
     reply.header('Referrer-Policy', 'no-referrer');
+    reply
+      .header('Cross-Origin-Opener-Policy', 'same-origin')
+      .header('Cross-Origin-Resource-Policy', 'same-origin');
     reply.header(
       'Content-Security-Policy',
       "default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'self'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'",
