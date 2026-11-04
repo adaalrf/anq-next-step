@@ -16,11 +16,11 @@ A job hunt spreads itself across saved links, notes and message threads. Keeping
 all in one place means building something that looks simple: a list of applications,
 each with a few fields and a stage.
 
-The interesting questions are in the forms. What should happen to a half-written
+The hard part turned out to be the forms. What should happen to a half-written
 cover letter when a save fails? When the same application is open in two tabs? How
 do you keep a follow-up date on the right day across timezones?
 
-This project works through those questions by building the whole thing.
+It's in real use, which is the quickest way to find the answers.
 
 ## What it does
 
@@ -74,7 +74,7 @@ serves both the interface and the API.
 
 ## What it leaves out
 
-This is a small, personal project. There's one owner and no collaboration. It
+It's a personal project, with one owner and no collaboration. It
 doesn't send reminders, upload documents or submit applications, and there's no
 JSON import.
 
